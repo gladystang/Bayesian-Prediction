@@ -9,9 +9,10 @@ library(ggplot2)
 library(gridExtra)
 library(matrixStats)
 #Loading the dataset--------------------------------------------------------------------------
-
-Binary<-read.csv("E:/creative component/shiny-1/classification.csv",header=T)
-Measure<-read.csv("E:/creative component/shiny-1/measures.csv",header=T)
+Binary = read.csv("classification.csv",header=T)
+Measure = read.csv("measures.csv",header=T)
+#Binary<-read.csv("E:/creative component/shiny-1/classification.csv",header=T)
+#Measure<-read.csv("E:/creative component/shiny-1/measures.csv",header=T)
 dataset<-c("Binary", "Measure")
 
 #----------------------------------------------------------------------------------------------
