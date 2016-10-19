@@ -358,6 +358,7 @@ shinyServer(function(input, output) {
       m_mod = jags.model(textConnection(model), dat_set) #a jags model object
       res = coda.samples(m_mod,  c( "a0","a","b0","b"), n.iter=1000)  #Generate posterior samples in mcmc.list format
       data <-as.data.frame(as.matrix(res[[1]])) 
+       \# input a new data set for prediction, assigning it to PRE_X, dataset here is for categorical data set.
       PRE_X <- matrix(c(26,6,1,2,42,1,1,0,39,6,2,0),nrow=3,byrow=TRUE)
       pred_data<-prediction(input$nodes,input$cols,PRE_X,data)
       Iterations <- 1:1000
@@ -375,6 +376,7 @@ shinyServer(function(input, output) {
       m_mod = jags.model(textConnection(model), dat_set) #a jags model object
       res = coda.samples(m_mod,  c("a0","a","b0","b"), n.iter=1000)  #Generate posterior samples in mcmc.list format
       data <-as.data.frame(as.matrix(res[[1]])) 
+      \# input a new data set for prediction, assigning it to PRE_X, dataset here is for measure data set
       PRE_X <- matrix(c(31,57623,15768,15.2,35,84935,16954,13.6,32.8,83656,15532,25),nrow=3,byrow=TRUE)
       PRE_X <- scale(PRE_X)
       pred_data<-predictionM(input$nodes,input$cols,PRE_X,data)
